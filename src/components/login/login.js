@@ -13,7 +13,7 @@ const Login = (props) => {
   useEffect(() => {
     const autoLogin = async () => {
       try {
-        const response = await fetch("http://localhost:3000/auto-login", {
+        const response = await fetch("https://rfid-bplg.onrender.com/auto-login", {
           method: "GET",
           credentials: "include", // Send cookies with request
         });
@@ -28,7 +28,7 @@ const Login = (props) => {
     };
 
     autoLogin();
-  }, ); // Runs only once on mount
+  }, [] ); // Runs only once on mount
 
 
   const handleLogin = async (e) => {
