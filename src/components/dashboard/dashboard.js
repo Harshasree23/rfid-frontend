@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef, useCallback } from 'react';
 import './dashboard.css';
 import Payment from '../payment/payment';
 import Profile from '../profile/profile';
@@ -10,18 +10,21 @@ import Create from '../create/create';
 import PaymentHistory from '../paymentHistory/paymentHistory';
 
 const Dashboard = (props) => {
-    const [page, setPage] = useState("");
-    const [selectedPage, setSelectedPage] = useState("");
-    const [user, setUser] = useState(null);  // Initialize as null to avoid errors
+    const [page, setPage] = useState("Profile"); // Default to Profile
+    const [selectedPage, setSelectedPage] = useState("Profile");
+    const [user, setUser] = useState(null);
+    const userCache = useRef(null); // Cache user data
 
     useEffect(() => {
-        async function getData(){
-        await getUser();
-        }
-        getData();
+        getUser();
     }, []);
 
     const getUser = async () => {
+        if (userCache.current) {
+            setUser(userCache.current);
+            return;
+        }
+        
         try {
             const res = await fetch("https://rfid-bplg.onrender.com/getUserId", {
                 method: "GET",
@@ -34,13 +37,15 @@ const Dashboard = (props) => {
             }
 
             const data = await res.json();
+            userCache.current = data.user;  // Cache the user data
             setUser(data.user);
         } catch (err) {
             console.error("Error fetching user ID:", err.message);
         }
     };
 
-    const renderPage = () => {
+    // 🛠️ Memoize the render function so it doesn't re-create on every render
+    const renderPage = useCallback(() => {
         switch (page) {
             case "Payment":
                 return <Payment user={user} />;
@@ -59,13 +64,15 @@ const Dashboard = (props) => {
             case "Payment History":
                 return <PaymentHistory user={user} />;
             default:
-                return <Profile user={user} />
+                return <Profile user={user} />;
         }
-    };
+    }, [page, user]); // Recreate only when page or user changes
 
     const handleNavClick = (name) => {
-        setPage(name);
-        setSelectedPage(name);
+        if (name !== page) {
+            setPage(name);
+            setSelectedPage(name);
+        }
     };
 
     const handleLogout = async () => {
@@ -107,19 +114,14 @@ const Dashboard = (props) => {
 
                 <div className="nav-box logout" onClick={handleLogout}>Logout</div>
             </nav>
-            {
-                user ? 
-                <>
+
+            {user ? (
                 <div className="output-component">
-                    {renderPage()}
+                    {renderPage()} 
                 </div>
-                </> 
-                :
-                <>
-                    <div> Loading... </div>
-                </>
-            }
-            
+            ) : (
+                <div>Loading...</div>
+            )}
         </>
     );
 };
