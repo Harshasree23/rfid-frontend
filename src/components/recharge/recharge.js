@@ -19,7 +19,7 @@ const Recharge = (props) => {
         }
 
         try {
-            const res = await fetch("http://localhost:3000/payment/add", {
+            const res = await fetch("https://rfid-bplg.onrender.com/payment/add", {
                 method: "POST",
                 credentials: "include",
                 headers: {

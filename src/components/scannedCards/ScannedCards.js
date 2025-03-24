@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io-client";
 import "./ScannedCards.css";
 
-const socket = io("http://localhost:3000", {
+const socket = io("https://rfid-bplg.onrender.com/", {
     transports: ["websocket", "polling"]
 }); // Adjust to your server URL
 

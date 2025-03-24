@@ -37,7 +37,7 @@ const Login = (props) => {
     setError(null);
 
     try {
-      const response = await fetch("http://localhost:3000/login", {
+      const response = await fetch("https://rfid-bplg.onrender.com/login", {
         method: "POST",
         credentials: "include", // Include cookies/auth headers
         headers: {

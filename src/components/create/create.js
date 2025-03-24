@@ -70,7 +70,7 @@ const Create = (props) => {
         console.log("Submitting Data:", finalFormData);
     
         try {
-            const res = await fetch("http://localhost:3000/person", {
+            const res = await fetch("https://rfid-bplg.onrender.com/person", {
                 method: "POST",
                 credentials: 'include',
                 headers: {

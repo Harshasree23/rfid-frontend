@@ -19,7 +19,7 @@ const Attendance = () => {
 
     const fetchAttendance = async () => {
         try {
-            const res = await fetch("http://localhost:3000/attendance/single", {
+            const res = await fetch("https://rfid-bplg.onrender.com/attendance/single", {
                 method: "GET",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },

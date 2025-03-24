@@ -20,7 +20,7 @@ const Payment = (props) => {
     }
 
     try {
-      const res = await fetch("http://localhost:3000/payment/pay", {
+      const res = await fetch("https://rfid-bplg.onrender.com/payment/pay", {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },

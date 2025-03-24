@@ -12,7 +12,7 @@ const Details = (props) => {
     useEffect(() => {
         const fetchUsers = async () => {
             try {
-                const res = await fetch("http://localhost:3000/person", {
+                const res = await fetch("https://rfid-bplg.onrender.com/person", {
                     method: "GET",
                     credentials: "include",
                 });

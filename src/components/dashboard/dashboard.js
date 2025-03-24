@@ -23,7 +23,7 @@ const Dashboard = (props) => {
 
     const getUser = async () => {
         try {
-            const res = await fetch("http://localhost:3000/getUserId", {
+            const res = await fetch("https://rfid-bplg.onrender.com/getUserId", {
                 method: "GET",
                 credentials: "include",
             });
