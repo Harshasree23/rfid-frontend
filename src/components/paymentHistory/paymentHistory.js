@@ -15,7 +15,7 @@ const PaymentHistory = (props) => {
   const fetchPaymentHistory = async () => {
     try {
         console.log(props.user);
-        const res = await fetch("https://rfid-bplg.onrender.com/history", {
+        const res = await fetch("https://rfid-bplg.onrender.com/payment/history", {
             method: "GET",
             credentials: "include",
             headers: { "Content-Type": "application/json" },
