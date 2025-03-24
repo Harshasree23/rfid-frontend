@@ -70,7 +70,7 @@ const Profile = (props) => {
         setError("");
         setSuccess("");
         try {
-            const res = await fetch("http://localhost:3000/person/", {
+            const res = await fetch("https://rfid-bplg.onrender.com/person/", {
                 method: "PATCH",
                 credentials: "include",
                 headers: { "Content-Type": "application/json" },
