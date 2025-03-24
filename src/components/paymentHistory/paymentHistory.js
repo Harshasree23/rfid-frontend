@@ -6,7 +6,7 @@ const PaymentHistory = (props) => {
   const [balance, setBalance] = useState(0);
   const [search, setSearch] = useState("");
   const [dateFilter, setDateFilter] = useState("");
-  const [loading, setLoading] = useState(true); // ✅ Added loading state
+  const [loading, setLoading] = useState(true); // ✅ Keep track of loading state
 
   // useRef to cache transactions
   const cacheRef = useRef(null);
@@ -15,7 +15,7 @@ const PaymentHistory = (props) => {
     if (cacheRef.current) {
       console.log("Using cached transactions");
       setTransactions(cacheRef.current);
-      setLoading(false); // ✅ Data is available, stop loading
+      setLoading(false); // ✅ Stop loading if cache is available
     } else {
       fetchPaymentHistory();
     }
@@ -24,7 +24,7 @@ const PaymentHistory = (props) => {
   const fetchPaymentHistory = async () => {
     try {
       console.log("Fetching from server...");
-      setLoading(true); // ✅ Set loading to true before fetching
+      setLoading(true); // ✅ Show loading message while fetching
 
       const res = await fetch("https://rfid-bplg.onrender.com/payment/history", {
         method: "GET",
@@ -48,7 +48,7 @@ const PaymentHistory = (props) => {
     } catch (error) {
       console.error("Error fetching transactions:", error.message);
     } finally {
-      setLoading(false); // ✅ Stop loading after fetching (whether success or failure)
+      setLoading(false); // ✅ Stop loading after fetching
     }
   };
 
@@ -71,7 +71,7 @@ const PaymentHistory = (props) => {
     <div className="payment-history">
       <h2>Transaction History</h2>
       
-      {/* Show loading spinner/message */}
+      {/* Show loading message before transactions are fetched */}
       {loading ? (
         <p className="loading-text">Loading transactions...</p>
       ) : (
