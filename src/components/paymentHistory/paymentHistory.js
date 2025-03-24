@@ -69,7 +69,6 @@ const PaymentHistory = (props) => {
 
   return (
     <div className="payment-history">
-      <h2>Transaction History</h2>
       
       {/* Show loading message before transactions are fetched */}
       {loading ? (
