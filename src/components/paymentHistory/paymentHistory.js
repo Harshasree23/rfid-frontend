@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useMemo } from "react";
 import "./paymentHistory.css";
 
 const PaymentHistory = (props) => {
   const [transactions, setTransactions] = useState([]);
-  const [filteredTransactions, setFilteredTransactions] = useState([]);
   const [balance, setBalance] = useState(0);
   const [search, setSearch] = useState("");
   const [dateFilter, setDateFilter] = useState("");
@@ -14,60 +13,45 @@ const PaymentHistory = (props) => {
 
   const fetchPaymentHistory = async () => {
     try {
-        console.log(props.user);
-        const res = await fetch("https://rfid-bplg.onrender.com/payment/history", {
-            method: "GET",
-            credentials: "include",
-            headers: { "Content-Type": "application/json" },
-        });
+      console.log(props.user);
+      const res = await fetch("https://rfid-bplg.onrender.com/payment/history", {
+        method: "GET",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
 
-        if (!res.ok) {
-            throw new Error("Failed to fetch payment history");
-        }
+      if (!res.ok) {
+        throw new Error("Failed to fetch payment history");
+      }
 
-        const data = await res.json();
-        
-        // Sort transactions in descending order (newest first)
-        const sortedTransactions = data.transactions.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
-        
-        setTransactions(sortedTransactions);
-        setFilteredTransactions(sortedTransactions);
-        setBalance(data.balance);
-    } catch (error) {
-        console.error("Error fetching transactions:", error.message);
-    }
-};
+      const data = await res.json();
 
-
-  // Search by name
-  const handleSearch = (e) => {
-    const value = e.target.value.toLowerCase();
-    setSearch(value);
-    filterTransactions(value, dateFilter);
-  };
-
-  // Search by date
-  const handleDateFilter = (e) => {
-    const value = e.target.value;
-    setDateFilter(value);
-    filterTransactions(search, value);
-  };
-
-  // Filter transactions based on name and date
-  const filterTransactions = (searchValue, dateValue) => {
-    let filtered = transactions.filter((txn) => 
-      txn.from?.firstName?.toLowerCase().includes(searchValue) || 
-      txn.to?.firstName?.toLowerCase().includes(searchValue)
-    );
-
-    if (dateValue) {
-      filtered = filtered.filter((txn) => 
-        new Date(txn.timestamp).toISOString().split("T")[0] === dateValue
+      // Sort transactions in descending order (newest first)
+      const sortedTransactions = data.transactions.sort(
+        (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
       );
-    }
 
-    setFilteredTransactions(filtered);
+      setTransactions(sortedTransactions);
+      setBalance(data.balance);
+    } catch (error) {
+      console.error("Error fetching transactions:", error.message);
+    }
   };
+
+  // Memoized filtered transactions (prevents unnecessary recalculations)
+  const filteredTransactions = useMemo(() => {
+    return transactions.filter((txn) => {
+      const matchesSearch =
+        txn.from?.firstName?.toLowerCase().includes(search) ||
+        txn.to?.firstName?.toLowerCase().includes(search);
+
+      const matchesDate = dateFilter
+        ? new Date(txn.timestamp).toISOString().split("T")[0] === dateFilter
+        : true;
+
+      return matchesSearch && matchesDate;
+    });
+  }, [transactions, search, dateFilter]);
 
   return (
     <div className="payment-history">
@@ -84,13 +68,13 @@ const PaymentHistory = (props) => {
           type="text"
           placeholder="Search by name..."
           value={search}
-          onChange={handleSearch}
+          onChange={(e) => setSearch(e.target.value.toLowerCase())}
           className="search-box"
         />
         <input
           type="date"
           value={dateFilter}
-          onChange={handleDateFilter}
+          onChange={(e) => setDateFilter(e.target.value)}
           className="date-filter"
         />
       </div>
@@ -102,9 +86,12 @@ const PaymentHistory = (props) => {
             <div 
               key={txn._id} 
               className={`transaction-card ${txn.transactionType}`} 
-              style={{ borderLeft: txn.transactionType === "credited" ? ".5rem solid green" : ".5rem solid red" ,  backgroundColor: txn.transactionType === "credited" ? "#ccffcc" : "#ffcccc" }}
+              style={{
+                borderLeft: txn.transactionType === "credited" ? ".5rem solid green" : ".5rem solid red",
+                backgroundColor: txn.transactionType === "credited" ? "#ccffcc" : "#ffcccc",
+              }}
             >
-              <div className="txn-details" >
+              <div className="txn-details">
                 <span className="from-to">
                   {txn.transactionType === "credited"
                     ? `From: ${txn.from?.firstName || "Unknown"} ${txn.from?.lastName || ""}`
