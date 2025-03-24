@@ -1,0 +1,112 @@
+.payment-page{
+    margin: 3rem auto;
+    padding: 1rem;
+    font-family: var(--mainfont);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items:center;
+}
+
+.msg{
+    color: var(--primary);
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.error-message {
+    color: red;
+    background-color: #ffe6e6;
+    padding: 10px;
+    border: 1px solid red;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}  
+
+.success-message{
+    color: green;
+    background-color: #e6ffe8;
+    padding: 10px;
+    border: 1px solid green;
+    margin: 10px 0;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.img-desc{
+    font-weight: lighter;
+}
+
+.payment-info{
+    position: relative;
+    margin: 4rem auto;
+    padding: 2rem;
+    padding-bottom: 5rem;
+    min-width: 50vw;
+    min-height: 40vh;
+    background-color: var(--secondarytrans);
+    border-radius: .4rem;
+    box-shadow: .5rem .5rem 1rem gray; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-name{
+    font-size: 2rem;
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.payment-info form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.payment-info form input{
+    border: .2rem solid transparent;
+    border-radius: .3rem;
+    padding: .5rem 1rem;
+    font-size: 1.5rem;
+}
+
+
+.payment-info form input:focus{
+    outline: none;
+    border: .2rem solid var(--primary);
+}
+
+.payment-info form button{
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
+    border: .2rem solid var(--primary);
+    background-color: var(--primary);
+    color: white;
+    border-radius: .3rem;
+}
+
+.go-back{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.438);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.go-back:hover{
+    box-shadow: .2rem .2rem .5rem rgb(80, 80, 80);
+    transform: scale(102%);
+    transition: all .3s;
+}

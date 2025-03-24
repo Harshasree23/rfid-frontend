@@ -1,0 +1,57 @@
+.users-container {
+    max-width: 90vw;
+    margin: 20px auto;
+    padding: 20px;
+    background: #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: var(--mainfont);
+    border-radius: 8px;
+}
+
+.search-filter-container {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.search-bar, .role-filter {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.role-filter {
+    width: 150px;
+}
+
+.users-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem auto;
+    background: white;
+}
+
+.users-table th, .users-table td {
+    padding: 10px;
+    text-align: left;
+}
+
+.users-table th {
+    background-color: var(--secondary);
+    color: white;
+}
+
+.users-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.error-msg {
+    color: red;
+    text-align: center;
+    font-weight: bold;
+}

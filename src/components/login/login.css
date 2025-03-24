@@ -1,0 +1,204 @@
+/* ----------------------------- */
+/* Login Page Styles */
+/* ----------------------------- */
+
+.login-page {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
+    z-index: 1;
+    font-family: var(--mainfont);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.1s ease-in-out;
+}
+
+.close-btn:hover {
+    color: #FF6500;
+}
+
+/* ----------------------------- */
+/* Login Container Styles */
+/* ----------------------------- */
+
+.container {
+    background: #fff;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    width: 75%;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+.login-form {
+    width: 25vw;
+}
+
+/* ----------------------------- */
+/* Logo Section */
+/* ----------------------------- */
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.logo img {
+    height: 4rem;
+    margin-right: 0.5rem;
+}
+
+/* ----------------------------- */
+/* Role Selection Styles */
+/* ----------------------------- */
+
+.role-selection {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.role-btn {
+    flex: 1;
+    padding: 0.8rem;
+    font-size: 1.3rem;
+    background: #ddd;
+    border: 2px solid transparent;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin: 0 0.3rem;
+}
+
+.active {
+    background: #FF6500;
+    color: white;
+    border: .15 solid #FF4500;
+}
+
+/* ----------------------------- */
+/* Input Field Styles */
+/* ----------------------------- */
+
+.form input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form input:focus {
+    border-color: #FF6500;
+    outline: none;
+}
+
+/* ----------------------------- */
+/* Submit Button Styles */
+/* ----------------------------- */
+
+.btn {
+    width: 100%;
+    padding: 0.8rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background: #1E3E62;
+    color: white;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+.btn:hover {
+    background: #163251;
+}
+
+/* ----------------------------- */
+/* Error Message Styles */
+/* ----------------------------- */
+
+.error-msg {
+    color: #FF6500;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* ----------------------------- */
+/* Sign-up Message Styles */
+/* ----------------------------- */
+
+.signup-msg {
+    margin-top: 2rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    justify-content: space-between;
+    text-align: left;
+    color: gray;
+}
+
+.signup-left {
+    display: flex;
+    align-items: center;
+}
+
+
+
+/* ----------------------------- */
+/* Responsive Design */
+/* ----------------------------- */
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 1.5rem;
+    }
+
+    .role-selection {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .role-btn {
+        width: 100%;
+    }
+}
+
+/* ----------------------------- */
+/* Keyframe Animations */
+/* ----------------------------- */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

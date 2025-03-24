@@ -1,0 +1,152 @@
+/* Main Attendance Container */
+.attendance-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80vw;
+    min-height: 70vh;
+    margin: 2rem auto;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-family: var(--mainfont);
+}
+
+/* Left Side - Calendar */
+.attendance-calendar {
+    width: 65%;
+}
+
+.react-calendar {
+    width: 100%;
+    background: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+}
+
+/* Right Side - Stats & Info */
+.attendance-info {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Header */
+.attendance-header {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+/* Today's Status */
+.today-div {
+    display: flex;
+    background-color: white;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    justify-content: space-around;
+    box-shadow: .1rem .1rem .3rem rgb(204, 201, 201);
+    align-items: center;
+    margin: 2rem auto ;
+}
+
+.today-status {
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    text-transform: uppercase;
+}
+
+.today-status.present {
+    background-color: #28a745;
+    color: white;
+}
+
+.today-status.absent {
+    background-color: #dc3545;
+    color: white;
+}
+
+.today-status.not-marked {
+    background-color: #ffc107;
+    color: black;
+}
+
+/* Attendance Stats */
+.attendance-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.attendance-stats table{
+    border-collapse: collapse;
+    border: none;
+}
+
+.attendance-stats table td{
+    border: none;
+    text-align: left;
+}
+
+/* Calendar Styling */
+.present-day {
+    background-color: rgba(40, 167, 69, 0.8) !important;
+    color: white !important;
+    border-radius: .2rem;
+    font-weight: bold;
+}
+
+.absent-day {
+    background-color: rgba(220, 53, 69, 0.8) !important;
+    color: white !important;
+    border-radius: .2rem;
+    font-weight: bold;
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .attendance-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .attendance-calendar, .attendance-info {
+        width: 100%;
+    }
+}
+
+
+/* calender */
+/* Calendar Container */
+.react-calendar {
+    font-family: "Poppins", sans-serif;
+    font-size: 1.3rem /* Change base font size */
+}
+
+/* Calendar Headings (Mon, Tue, etc.) */
+.react-calendar__month-view__weekdays {
+    font-size: 1.3rem;
+    font-weight: lighter;
+    text-decoration: none;
+    border: none;
+    color: #007bff;
+    text-transform: uppercase;
+}
+
+/* Calendar Numbers (Dates) */
+.react-calendar__tile {
+    font-size: 1.3rem; /* Increase date numbers */
+    font-weight: lighter;
+    padding: 10px;
+}
+

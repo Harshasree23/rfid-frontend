@@ -1,0 +1,25 @@
+nav{
+    padding: 1.5rem 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-family: var(--mainfont);
+    background-color: var(--secondarytrans);
+}
+
+.nav-box{
+    padding: .5rem 1rem;
+    background-color: rgba(199, 192, 192, 0.397);
+    color: white;
+    border-radius: .3rem;
+    cursor: pointer;
+}
+
+.nav-box:last-child{
+    background-color: var(--primary);
+    color: white;
+}
+
+.active{
+    background-color: var(--primarytrans);
+}

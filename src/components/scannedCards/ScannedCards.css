@@ -1,0 +1,121 @@
+.scanned-cards {
+    font-family: var(--mainfont);
+    width: 80%;
+    margin: 1rem auto;
+    text-align: center;
+}
+
+.scanned-cards-heading{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 2rem;
+}
+
+.no-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+}
+
+.card{
+    font-size: 1.3rem;
+    background-color: var(--secondarytrans);
+    padding: 1rem;
+    min-height: 200px;
+    width: 350px;
+    border-radius: .3rem;
+    color: white;
+    position: relative;
+}
+
+.card p{
+    width: 100%;
+    font-size: 2rem;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.card::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    top: -1rem;
+    left: -1rem;
+    border-radius: .3rem;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primarytrans);
+}
+
+.scan-txt{
+    font-size: 2rem;
+    font-weight: lighter;
+    margin: 1.5rem auto;
+}
+
+.scanned-cards-heading h2{
+    color: var(--secondary);
+}
+
+.btn-go-back{
+    padding: .5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: .3rem;
+    background-color: var(--secondarytrans);
+    color: white;
+}   
+
+.scanned-cards table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: .3rem;
+    margin-top: 20px;
+}
+
+.scanned-cards table th, td {
+    padding: .7rem;
+    text-align: center;
+    border-bottom: .1rem solid rgb(182, 182, 182);
+}
+
+.scanned-cards table th {
+    color: var(--secondary);
+    background-color: rgba(197, 196, 197, 0.274);
+    border-bottom: .2rem solid;
+}
+
+.scanned-cards table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.scanned-cards table tbody tr:hover {
+    background-color: #ddd;
+}
+
+
+.scanned-cards table button {
+    margin: 5px;
+    padding: .5rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: .3rem;
+}
+
+.scanned-cards table button:hover {
+    opacity: 0.8;
+}
+
+.scanned-cards table button:first-child {
+    background-color: #03920a;
+    color: white;
+}
+
+.scanned-cards table button:last-child {
+    background-color: #dc3545;
+    color: white;
+}

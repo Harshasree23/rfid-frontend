@@ -1,0 +1,103 @@
+.contact-container{
+    font-family: var(--mainfont);
+    background-image: url("../../../public/assets/pc.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 8rem ;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    position: relative;
+    margin-top: 5rem;
+}
+
+.contact-container::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.445);
+}
+
+.get-in-touch{
+    font-size: 4rem;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0rem 0rem .5rem black;
+}
+
+.contact-heading{
+    color: var(--primary);
+    font-size: 3rem;
+}
+
+.contact-form{
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.815);
+    box-shadow: .5rem .5rem 1rem rgb(122, 120, 120);
+    border-radius: .4rem;
+    min-width: 50vw;
+    min-height: 60vh;
+    margin: 1rem auto;
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+}
+
+.form-heading{
+    padding: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--secondary);
+    font-size: 2.5rem;
+}
+
+.contact-form input , .contact-form textarea{
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
+    outline: none;
+    font-family: var(--mainfont);
+}
+
+.contact-form button{
+    width: fit-content;
+    font-size: 1.4rem;
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+    border-radius: .3rem;
+    border: none;
+    background-color: var(--primary);
+    color: white;
+}
+
+.contact-img{
+    background-color: #1e3e624d;
+    border-radius: .5rem;
+    top: -3rem;
+    left: 0rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-img img{
+    height: 3rem;
+    width: 3rem;
+    padding: .5rem;
+    border-radius: .5rem;
+}
+
+.contact-img img:hover{
+    background-color: #1e3e627a;
+}
+
+.selected{
+    background-color: #1e3e62;
+}

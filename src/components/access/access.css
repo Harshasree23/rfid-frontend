@@ -1,0 +1,154 @@
+.access-page{
+    margin: 5rem auto;
+    padding: 1rem;
+    font-family: var(--mainfont);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items:center;
+}
+
+.msg{
+    color: var(--primary);
+    font-size: 2rem;
+    padding: 1rem;
+}
+
+.card{
+    font-size: 1.3rem;
+    background-color: var(--secondarytrans);
+    padding: 1rem;
+    min-height: 200px;
+    width: 350px;
+    border-radius: .3rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    position: relative;
+}
+
+.card::before{
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    top: -1rem;
+    left: -1rem;
+    border-radius: .3rem;
+    height: 100%;
+    width: 100%;
+    background-color: var(--primarytrans);
+}
+
+.scan{
+    transform: rotate(90deg);
+}
+
+.card-enter{
+    position: absolute;
+    right: -50%;
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-enter img{
+    height: 3.5rem;
+    width: 3.5rem;
+    padding: .5rem;
+    background-color: var(--primarytrans);
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.card-enter img:hover{
+    background-color: var(--primary);
+    color: white;
+    box-shadow: .5rem .5rem 1rem gray;
+    transition: all .3s;
+}
+
+.img-desc{
+    font-weight: lighter;
+}
+
+.access-info{
+    position: relative;
+    padding: 2rem;
+    padding-bottom: 5rem;
+    min-width: 50vw;
+    min-height: 40vh;
+    background-color: var(--secondarytrans);
+    border-radius: .4rem;
+    box-shadow: .5rem .5rem 1rem gray; 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.user-name{
+    font-size: 2rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.access-info form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.access-info form input{
+    border: .2rem solid transparent;
+    border-radius: .3rem;
+    padding: .5rem 1rem;
+    font-size: 1.5rem;
+}
+
+
+.access-info form input:focus{
+    outline: none;
+    border: .2rem solid var(--primary);
+}
+
+.access-info form button{
+    font-size: 1.3rem;
+    padding: .5rem 1rem;
+    border: .2rem solid var(--primary);
+    background-color: var(--primary);
+    color: white;
+    border-radius: .3rem;
+}
+
+.go-back{
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.438);
+    color: white;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.go-back:hover{
+    box-shadow: .2rem .2rem .5rem rgb(80, 80, 80);
+    transform: scale(102%);
+    transition: all .3s;
+}
+
+.left{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: center;
+    align-items: center;
+}

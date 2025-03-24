@@ -1,0 +1,353 @@
+/* Global Styles */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--mainfont);
+}
+
+/* First Page */
+.first-page {
+    min-height: 100vh;  /* Changed from height: 100vh to min-height for flexibility */
+    background-position: center;
+    background-color: rgba(5, 5, 5, 0.342);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Header Styling */
+header {
+    width: 100%;
+    display: flex;
+    padding: 0.7rem 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-img{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+}
+
+/* Login Button */
+header .login {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.199);
+    box-shadow: 0rem 0rem 1rem rgb(0, 0, 0);
+    border-radius: .3rem;
+    font-size: 1.3rem;
+    padding: 0.5rem 1.2rem;
+    cursor: pointer;
+}
+
+header .login:hover {
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.308);
+    font-size: 1.5rem;
+    transition: all .3s;
+}
+
+/* About Section */
+.about {
+    width: 85%;
+    position: relative;
+    margin: 15rem auto;
+    border-radius: 10px;
+    text-align: center;
+    font-family: var(--secondfont);
+    font-weight: bold;
+    font-size: 4rem;
+    color: white;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0rem 0rem .5rem rgb(83, 82, 82);
+}
+
+.about-sub{
+    position: absolute;
+    font-size: 1.5rem;
+    bottom: -3rem;
+}
+
+/* Quote Decorations */
+.about::before,
+.about::after {
+    content: "";
+    height: 2.5rem;
+    width: 2.5rem;
+    position: absolute;
+    background-size: cover;
+}
+
+.about::before {
+    top: -.5rem;
+    left: 3rem;
+    background-image: url('../../../public/assets/quote-white.png');
+    transform: scaleX(-1);
+}
+
+.about::after {
+    top: -.5rem;
+    right: 3rem;
+    background-image: url('../../../public/assets/quote-white.png');
+}
+
+/* Scroll Down Arrow */
+.down {
+    position: absolute;
+    left: 50%;
+    bottom: .5rem;
+    transform: translateX(-50%);
+}
+
+.down img {
+    height: 2.5rem;
+    width: 2.5rem;
+    cursor: pointer;
+    animation: bounce 2.5s infinite;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-1rem);
+    }
+}
+
+/*  */
+/* Features */
+/*  */
+
+.features{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.feature{
+    margin: 10rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.feature-img{
+    background-color: #ff6600ef;
+    padding: 1rem;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature img{
+    height: 3.5rem;
+    width: 3.5rem;
+    position: relative;
+}
+
+.feature-desc{
+    font-size: 1.5rem;
+    color: var(--secondary);
+    text-align: center;
+    max-width: 350px;
+}
+
+
+/*  */
+/* Steps */
+/*  */
+
+.steps-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.steps-heading{
+    width: 100%;
+    min-height: 310px;
+    background-image: url('../../../public/assets/wave.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 2rem .5rem;
+    color: white;
+    font-size: 5rem;
+    overflow: visible;
+}
+
+.step::before{
+    content: "";
+    height: 100%;
+    width: 100%;
+    box-shadow: .1rem .1rem 1rem lightgray;
+}
+
+.number{
+    position: absolute;
+    padding: 1rem;
+    font-size: 5rem;
+    color: var(--primary);
+    font-weight: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    top: 20%;
+    left: -10%;
+}
+
+.steps{
+    margin-top: 2rem;
+    display: flex;
+    gap: .5rem ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.step-heading{
+    font-size: 2rem;
+    font-weight: lighter;
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+}
+
+.step-desc{
+    font-size: 1.5rem;
+    color: var(--secondary);
+    padding: 1rem;
+}
+
+.step{
+    border-radius: .5rem;
+    max-width: 70vw;
+    position: relative;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: .1rem solid lightgray;
+}
+
+/*  */
+/* Footer */
+/*  */
+
+footer {
+    padding: 1rem;
+    min-height: 10vh;
+    background-color: var(--secondary);
+    color: white;
+    border-radius: 1rem 1rem 0rem 0rem;
+    padding: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: auto; 
+}
+
+.footer-heading{
+    font-size: 2rem;
+    font-weight: lighter;
+    border-bottom: .1rem solid;
+}
+
+.company-details{
+    display: flex;
+    gap: .5rem;
+    flex-direction: column;
+    align-items: start;
+}
+
+.detail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.detail img{
+    height: 2rem;
+    width: 2rem;
+}
+
+.company-connect{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.company-connect a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: inherit;
+    gap: 2rem;
+    text-decoration: none;
+}
+
+.company-connect a img{
+    height: 2rem;
+    width: 2rem;
+    filter: invert(1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    /* Adjust About Section */
+    .about {
+        width: 90%;
+        font-size: 1.5rem;
+        padding: 2rem;
+    }
+
+    /* Adjust Login Button */
+    header .login {
+        font-size: 1.2rem;
+        padding: 0.4rem 1rem;
+    }
+
+    /* Adjust Scroll Arrow */
+    .down img {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    /* Make Image & Text Stack on Small Screens */
+    .img-matter {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+
+    .image-div {
+        margin: auto;
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .image-div img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
