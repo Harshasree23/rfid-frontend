@@ -1,4 +1,4 @@
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import "./paymentHistory.css";
 
 const PaymentHistory = (props) => {
@@ -7,13 +7,21 @@ const PaymentHistory = (props) => {
   const [search, setSearch] = useState("");
   const [dateFilter, setDateFilter] = useState("");
 
+  // useRef to cache transactions in memory (does not reset on re-renders)
+  const cacheRef = useRef(null);
+
   useEffect(() => {
-    fetchPaymentHistory();
+    if (cacheRef.current) {
+      console.log("Using cached transactions");
+      setTransactions(cacheRef.current);
+    } else {
+      fetchPaymentHistory();
+    }
   }, []);
 
   const fetchPaymentHistory = async () => {
     try {
-      console.log(props.user);
+      console.log("Fetching from server...");
       const res = await fetch("https://rfid-bplg.onrender.com/payment/history", {
         method: "GET",
         credentials: "include",
@@ -25,12 +33,12 @@ const PaymentHistory = (props) => {
       }
 
       const data = await res.json();
-
-      // Sort transactions in descending order (newest first)
       const sortedTransactions = data.transactions.sort(
         (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
       );
 
+      // Store fetched data in useRef
+      cacheRef.current = sortedTransactions;
       setTransactions(sortedTransactions);
       setBalance(data.balance);
     } catch (error) {
@@ -38,7 +46,7 @@ const PaymentHistory = (props) => {
     }
   };
 
-  // Memoized filtered transactions (prevents unnecessary recalculations)
+  // Memoized filtering
   const filteredTransactions = useMemo(() => {
     return transactions.filter((txn) => {
       const matchesSearch =
@@ -56,8 +64,6 @@ const PaymentHistory = (props) => {
   return (
     <div className="payment-history">
       <h2>Transaction History</h2>
-
-      {/* Balance Display */}
       <div className="balance">
         Total Balance: <span className={balance >= 0 ? "green" : "red"}>₹{balance}</span>
       </div>
@@ -79,7 +85,7 @@ const PaymentHistory = (props) => {
         />
       </div>
 
-      {/* Transaction Cards */}
+      {/* Transactions */}
       <div className="transactions">
         {filteredTransactions.length > 0 ? (
           filteredTransactions.map((txn) => (
