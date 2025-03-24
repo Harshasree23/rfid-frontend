@@ -70,7 +70,7 @@ const Dashboard = (props) => {
 
     const handleLogout = async () => {
         try {
-            const res = await fetch('http://localhost:3000/logout', {
+            const res = await fetch('https://rfid-bplg.onrender.com/logout', {
                 method: 'GET',
                 credentials: "include",
             });
