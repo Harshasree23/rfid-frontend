@@ -85,7 +85,7 @@ const Login = (props) => {
           {/* Login Form */}
           <form className="form" onSubmit={handleLogin}>
             <input type="email" name="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input type="password" name="password" placeholder="Password" required value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input type="password" name="password" placeholder="Password ( DDMMYYYY ) " required value={password} onChange={(e) => setPassword(e.target.value)} />
             <button type="submit" className="btn" disabled={isLoading}>
               {isLoading ? "Logging in..." : "Login"}
             </button>

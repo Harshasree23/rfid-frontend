@@ -140,40 +140,40 @@ const Create = (props) => {
                             {error && <p className="error-msg">{error}</p>}
                             {success && <p className="success-msg">{success}</p>}
 
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit} autoComplete="off">
                                 <div className="form-group">
                                     <label>First Name:</label>
-                                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} />
+                                    <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} autoComplete="off"  />
                                 </div>
 
                                 <div className="form-group">
                                     <label>Last Name:</label>
-                                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} />
+                                    <input type="text" name="lastName" value={formData.lastName} onChange={handleChange} autoComplete="off"  />
                                 </div>
 
                                 <div className="form-group">
                                     <label>Email:</label>
-                                    <input type="email" name="email" value={formData.email} onChange={handleChange} />
+                                    <input type="email" name="email" value={formData.email} onChange={handleChange} autoComplete="off"  />
                                 </div>
 
                                 <div className="form-group">
                                     <label>Roll No:</label>
-                                    <input type="text" name="rollNo" value={formData.rollNo} onChange={handleChange} />
+                                    <input type="text" name="rollNo" value={formData.rollNo} onChange={handleChange} autoComplete="off"  />
                                 </div>
 
                                 <div className="form-group">
                                     <label>Phone:</label>
-                                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} />
+                                    <input type="tel" name="phone" value={formData.phone} onChange={handleChange} autoComplete="off"  />
                                 </div>
 
                                 <div className="form-group">
                                     <label>Address:</label>
-                                    <input type="text" name="address" value={formData.address} onChange={handleChange} />
+                                    <input type="text" name="address" value={formData.address} onChange={handleChange} autoComplete="off"  />
                                 </div>
 
                                 <div className="form-group">
                                     <label>Role:</label>
-                                    <select name="role" value={formData.role} onChange={handleChange}>
+                                    <select name="role" value={formData.role} onChange={handleChange} autoComplete="off" >
                                         <option value="">Select Role</option>
                                         {props.user.role === "admin" && (
                                             <>
@@ -187,7 +187,7 @@ const Create = (props) => {
 
                                 <div className="form-group">
                                     <label>Date of Birth:</label>
-                                    <input type="date" name="dob" value={formData.dob} onChange={handleChange} />
+                                    <input type="date" name="dob" value={formData.dob} onChange={handleChange} autoComplete="off"  />
                                 </div>
 
                                 <div className="form-group" style={{ display: "none" }}>

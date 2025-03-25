@@ -92,37 +92,41 @@ const Dashboard = (props) => {
     };
 
     return (
-        <>
-            <nav>
-                <div className={`nav-box ${selectedPage === 'Profile' ? 'active' : ''}`} onClick={() => handleNavClick('Profile')}>Profile</div>
-
-                {user && (user.role === "admin" || user.role === "staff") && (
-                    <>
-                        <div className={`nav-box ${selectedPage === 'Payment' ? 'active' : ''}`} onClick={() => handleNavClick('Payment')}>Payments</div>
-                        <div className={`nav-box ${selectedPage === 'Recharge' ? 'active' : ''}`} onClick={() => handleNavClick('Recharge')}>Recharge</div>
-                        <div className={`nav-box ${selectedPage === 'Details' ? 'active' : ''}`} onClick={() => handleNavClick('Details')}>Details</div>
-                        <div className={`nav-box ${selectedPage === 'Access' ? 'active' : ''}`} onClick={() => handleNavClick('Access')}>Access</div>
-                        <div className={`nav-box ${selectedPage === 'Create' ? 'active' : ''}`} onClick={() => handleNavClick('Create')}>Create</div>
-                    </>
-                )}
-
-                {user && user.role !== "admin" && (
-                    <div className={`nav-box ${selectedPage === 'Attendance' ? 'active' : ''}`} onClick={() => handleNavClick('Attendance')}>Attendance</div>
-                )}
-
-                <div className={`nav-box ${selectedPage === 'Payment History' ? 'active' : ''}`} onClick={() => handleNavClick('Payment History')}>Payment History</div>
-
-                <div className="nav-box logout" onClick={handleLogout}>Logout</div>
-            </nav>
+        <div className='dashboard'>
 
             {user ? (
-                <div className="output-component">
-                    {renderPage()} 
+                <div className='user-dashboard'>
+                    <nav>
+                        <div className={`nav-box ${selectedPage === 'Profile' ? 'active' : ''}`} onClick={() => handleNavClick('Profile')}>
+                            <img src='/assets/person.png' alt='profile' /> 
+                        </div>
+
+                        {user && (user.role === "admin" || user.role === "staff") && (
+                            <>
+                                <div className={`nav-box ${selectedPage === 'Payment' ? 'active' : ''}`} onClick={() => handleNavClick('Payment')}>Payments</div>
+                                <div className={`nav-box ${selectedPage === 'Recharge' ? 'active' : ''}`} onClick={() => handleNavClick('Recharge')}>Recharge</div>
+                                <div className={`nav-box ${selectedPage === 'Details' ? 'active' : ''}`} onClick={() => handleNavClick('Details')}>Details</div>
+                                <div className={`nav-box ${selectedPage === 'Access' ? 'active' : ''}`} onClick={() => handleNavClick('Access')}>Access</div>
+                                <div className={`nav-box ${selectedPage === 'Create' ? 'active' : ''}`} onClick={() => handleNavClick('Create')}>Create</div>
+                            </>
+                        )}
+
+                        {user && user.role !== "admin" && (
+                            <div className={`nav-box ${selectedPage === 'Attendance' ? 'active' : ''}`} onClick={() => handleNavClick('Attendance')}>Attendance</div>
+                        )}
+
+                        <div className={`nav-box ${selectedPage === 'Payment History' ? 'active' : ''}`} onClick={() => handleNavClick('Payment History')}>Payment History</div>
+
+                        <div className="nav-box logout" onClick={handleLogout}>Logout</div>
+                    </nav>
+                    <div className="output-component">
+                        {renderPage()} 
+                    </div>
                 </div>
             ) : (
                 <div>Loading...</div>
             )}
-        </>
+        </div>
     );
 };
 

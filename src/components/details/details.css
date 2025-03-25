@@ -1,5 +1,6 @@
 .users-container {
-    max-width: 90vw;
+    max-height: 100vh;
+    overflow: scroll;
     margin: 20px auto;
     padding: 20px;
     background: #f4f4f4;

@@ -22,7 +22,7 @@
     padding-bottom: 5rem;
     min-width: 50vw;
     min-height: 40vh;
-    background-color: var(--secondarytrans);
+    background-color: rgba(0, 0, 0, 0.192);
     border-radius: .4rem;
     box-shadow: .5rem .5rem 1rem gray; 
     display: flex;
@@ -62,8 +62,7 @@
 .recharge-info form button{
     font-size: 1.3rem;
     padding: .5rem 1rem;
-    border: .2rem solid var(--primary);
-    background-color: var(--primary);
+    background-color: var(--secondary);
     color: white;
     border-radius: .3rem;
 }

@@ -4,13 +4,13 @@
     font-family: var(--mainfont);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    gap: 2rem;
-    align-items:center;
+    justify-content: center;
+    align-self: center;
 }
 
 .msg{
     color: var(--primary);
+    width: fit-content;
     font-size: 2rem;
     padding: 1rem;
 }
@@ -20,18 +20,20 @@
     background-color: #ffe6e6;
     padding: 10px;
     border: 1px solid red;
-    margin: 10px 0;
+    margin: 10px auto;
     text-align: center;
     font-weight: bold;
+    width: fit-content;
     border-radius: 5px;
 }  
 
 .success-message{
     color: green;
+    width: fit-content;
     background-color: #e6ffe8;
     padding: 10px;
     border: 1px solid green;
-    margin: 10px 0;
+    margin: 10px auto;
     text-align: center;
     font-weight: bold;
     border-radius: 5px;
@@ -48,9 +50,9 @@
     padding-bottom: 5rem;
     min-width: 50vw;
     min-height: 40vh;
-    background-color: var(--secondarytrans);
+    background-color: rgba(0, 0, 0, 0.212);
     border-radius: .4rem;
-    box-shadow: .5rem .5rem 1rem gray; 
+    box-shadow: .5rem .5rem 1rem rgba(133, 132, 132, 0.178); 
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -88,8 +90,7 @@
 .payment-info form button{
     font-size: 1.3rem;
     padding: .5rem 1rem;
-    border: .2rem solid var(--primary);
-    background-color: var(--primary);
+    background-color: var(--secondary);
     color: white;
     border-radius: .3rem;
 }

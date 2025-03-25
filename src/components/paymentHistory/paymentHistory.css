@@ -6,6 +6,8 @@
     border-radius: .3rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-family: var(--mainfont);
+    max-height: 100vh;
+    overflow-y: scroll;
   }
   
   .balance {
