@@ -101,7 +101,7 @@ const Landing = (props) => {
                 <Contact />
             </div>
 
-            <footer>
+            {/* <footer>
 
                 <div className='company-logo'>
                     <Tagflow />
@@ -127,7 +127,7 @@ const Landing = (props) => {
                     </div>
                 </div>
 
-            </footer>
+            </footer> */}
         </>
     );
 }
