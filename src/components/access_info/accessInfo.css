@@ -1,0 +1,23 @@
+.access-container {
+    padding: 2rem;
+  }
+  
+  .access-header {
+    margin-bottom: 1rem;
+  }
+  
+  .access-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .access-list th, .access-list td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  .error {
+    color: red;
+  }
+  
