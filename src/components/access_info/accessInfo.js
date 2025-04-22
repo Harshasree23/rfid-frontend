@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./accessinfo.css"; // Reuse or tweak the attendance.css if needed
+import "./accessInfo.css";
 
 const AccessLogs = () => {
     const [logs, setLogs] = useState([]);
