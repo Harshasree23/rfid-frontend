@@ -8,6 +8,7 @@ import Details from '../details/details';
 import Access from '../access/access';
 import Create from '../create/create';
 import PaymentHistory from '../paymentHistory/paymentHistory';
+import AccessLogs from '../access_info/accessInfo';
 
 const Dashboard = (props) => {
     const [page, setPage] = useState("Profile"); // Default to Profile
@@ -59,6 +60,8 @@ const Dashboard = (props) => {
                 return <Attendance user={user} />;
             case "Access":
                 return <Access user={user} />;
+            case "Access Logs":
+                return <AccessLogs user={user} />;
             case "Create":
                 return <Create user={user} />;
             case "Payment History":
@@ -108,6 +111,7 @@ const Dashboard = (props) => {
                                 <div className={`nav-box ${selectedPage === 'Details' ? 'active' : ''}`} onClick={() => handleNavClick('Details')}>Details</div>
                                 <div className={`nav-box ${selectedPage === 'Access' ? 'active' : ''}`} onClick={() => handleNavClick('Access')}>Access</div>
                                 <div className={`nav-box ${selectedPage === 'Create' ? 'active' : ''}`} onClick={() => handleNavClick('Create')}>Create</div>
+                                <div className={`nav-box ${selectedPage === 'Create' ? 'active' : ''}`} onClick={() => handleNavClick('Create')}>Access Logs</div>
                             </>
                         )}
 

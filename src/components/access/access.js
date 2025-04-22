@@ -9,6 +9,7 @@ const Access = (props) => {
   const [success, setSuccess] = useState("");
   const [selectCard, setSelectCard] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [rfid , setRfid] = useState("");
 
   // Auto-clear success and error messages after 3 seconds
   useEffect(() => {
@@ -91,7 +92,7 @@ const Access = (props) => {
           </form>
         </div>
       ) : (
-        <ScannedCards setSelectCard={setSelectCard} setUser={setAccessedBy} />
+        <ScannedCards setSelectCard={setSelectCard} setRfid={setRfid} setUser={setAccessedBy} />
       )}
     </div>
   );
