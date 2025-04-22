@@ -41,7 +41,7 @@ const Access = (props) => {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ modelName, accessedBy: props.user._id }),
+        body: JSON.stringify({ modelName, accessedBy: props.user.firstName+" "+props.user.lastName }),
       });
 
       if (!res.ok) {

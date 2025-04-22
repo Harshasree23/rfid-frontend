@@ -42,7 +42,6 @@ const AccessLogs = () => {
                     <thead>
                         <tr>
                             <th>Model Name</th>
-                            <th>Record ID</th>
                             <th>Accessed By</th>
                             <th>Access Time</th>
                         </tr>
@@ -51,7 +50,6 @@ const AccessLogs = () => {
                         {logs.map((log, index) => (
                             <tr key={index}>
                                 <td>{log.modelName}</td>
-                                <td>{log.recordId}</td>
                                 <td>{log.accessedBy?.firstName} {log.accessedBy?.lastName}</td>
                                 <td>{new Date(log.time).toLocaleString()}</td>
                             </tr>
