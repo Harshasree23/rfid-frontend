@@ -10,6 +10,7 @@ const Access = (props) => {
   const [selectCard, setSelectCard] = useState(false);
   const [loading, setLoading] = useState(false);
   const [rfid , setRfid] = useState("");
+  const [accessId,setAccessId] = useState("");
 
   // Auto-clear success and error messages after 3 seconds
   useEffect(() => {
@@ -41,7 +42,7 @@ const Access = (props) => {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ modelName, accessedBy: props.user._id }),
+        body: JSON.stringify({ modelName, accessedBy: accessId }),
       });
 
       if (!res.ok) {
@@ -92,7 +93,7 @@ const Access = (props) => {
           </form>
         </div>
       ) : (
-        <ScannedCards setSelectCard={setSelectCard} setRfid={setRfid} setUser={setAccessedBy} />
+        <ScannedCards setSelectCard={setSelectCard} setAccessId={setAccessId} setRfid={setRfid} setUser={setAccessedBy} />
       )}
     </div>
   );

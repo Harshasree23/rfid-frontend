@@ -38,6 +38,8 @@ const ScannedCards = (props) => {
         if(props.setSelectCard )
             props.setSelectCard(true);
 
+        if(props.setAccessId)
+            props.setAccessId(rfid._id);
         if(props.setUserExist && rfid.name!=="new user")
             props.setUserExist(true);
     };
