@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./access.css"; // You can style the component as you like
+import "./access.css";
 import ScannedCards from "../scannedCards/ScannedCards"; // Assuming you have this or will use a similar card scan component
 
 const Access = (props) => {
@@ -41,7 +41,7 @@ const Access = (props) => {
         method: "POST",
         credentials: "include",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ modelName, accessedBy: accessedBy }),
+        body: JSON.stringify({ modelName, accessedBy: props.user._id }),
       });
 
       if (!res.ok) {
