@@ -111,7 +111,7 @@ const Dashboard = (props) => {
                                 <div className={`nav-box ${selectedPage === 'Details' ? 'active' : ''}`} onClick={() => handleNavClick('Details')}>Details</div>
                                 <div className={`nav-box ${selectedPage === 'Access' ? 'active' : ''}`} onClick={() => handleNavClick('Access')}>Access</div>
                                 <div className={`nav-box ${selectedPage === 'Create' ? 'active' : ''}`} onClick={() => handleNavClick('Create')}>Create</div>
-                                <div className={`nav-box ${selectedPage === 'Create' ? 'active' : ''}`} onClick={() => handleNavClick('Create')}>Access Logs</div>
+                                <div className={`nav-box ${selectedPage === 'Access Logs' ? 'active' : ''}`} onClick={() => handleNavClick('Access Logs')}>Access Logs</div>
                             </>
                         )}
 
